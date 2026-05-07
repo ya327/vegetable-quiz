@@ -20,7 +20,7 @@
   #app {
     background: white;
     border-radius: 28px;
-    padding: 32px 28px;
+    padding: clamp(16px, 5vw, 32px) clamp(14px, 5vw, 28px);
     max-width: 420px;
     width: 100%;
     box-shadow: 0 8px 32px rgba(0,0,0,0.10);
@@ -39,17 +39,19 @@
   }
 
   /* ── スタート画面 ── */
-  #start h2 { font-size: 22px; color: #2e7d32; margin: 16px 0 8px; }
-  #start p  { font-size: 14px; color: #666; margin-bottom: 28px; line-height: 1.7; }
+  #start h2 { font-size: clamp(18px, 5vw, 22px); color: #2e7d32; margin: 16px 0 8px; }
+  #start p  { font-size: clamp(13px, 3.5vw, 15px); color: #666; margin-bottom: 28px; line-height: 1.7; }
   .mode-btn {
     display: block; width: 100%;
     border: none; border-radius: 20px;
-    padding: 18px; font-size: 20px; font-weight: bold;
+    padding: clamp(14px, 4vw, 18px); font-size: clamp(17px, 4.5vw, 20px); font-weight: bold;
     cursor: pointer; font-family: inherit;
     margin-bottom: 12px;
     transition: transform 0.1s;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
   }
-  .mode-btn:hover { transform: scale(1.03); }
+  .mode-btn:active { transform: scale(0.97); }
   .mode-btn.easy {
     background: linear-gradient(135deg, #a5d6a7, #66bb6a);
     color: white;
@@ -111,14 +113,14 @@
     border: 2px solid #e0e0e0;
   }
   #quiz-emoji {
-    font-size: 100px;
+    font-size: clamp(72px, 22vw, 100px);
     line-height: 1;
     margin: 0 auto 12px;
     display: none;
   }
 
   .question-word {
-    font-size: 48px;
+    font-size: clamp(34px, 10vw, 48px);
     font-weight: bold;
     color: #2e7d32;
     letter-spacing: 2px;
@@ -128,14 +130,15 @@
     background: #e3f2fd;
     border: 2px solid #90caf9;
     border-radius: 99px;
-    padding: 7px 20px;
-    font-size: 18px;
+    padding: 8px 24px;
+    font-size: clamp(16px, 4vw, 18px);
     cursor: pointer;
     margin-bottom: 16px;
     font-family: inherit;
-    transition: transform 0.1s;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
   }
-  .speak-btn:hover { transform: scale(1.05); }
+  .speak-btn:active { transform: scale(0.95); }
 
   .question-sub {
     font-size: 14px;
@@ -153,15 +156,16 @@
     background: #fffde7;
     border: 2px solid #ffe082;
     border-radius: 16px;
-    padding: 14px 12px;
-    font-size: 20px;
+    padding: clamp(12px, 3.5vw, 14px) 12px;
+    font-size: clamp(17px, 4.5vw, 20px);
     cursor: pointer;
     transition: background 0.15s, transform 0.1s;
     font-family: inherit;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
   }
-  .choice-btn:hover:not(:disabled) {
-    background: #fff8e1;
-    transform: scale(1.03);
+  .choice-btn:active:not(:disabled) {
+    transform: scale(0.97);
   }
   .choice-btn.correct {
     background: #c8e6c9;
@@ -178,7 +182,7 @@
 
   .feedback {
     min-height: 64px;
-    font-size: 15px;
+    font-size: clamp(14px, 3.8vw, 16px);
     line-height: 1.7;
     color: #333;
     margin-bottom: 16px;
@@ -188,7 +192,7 @@
     display: none;
   }
   .feedback.show { display: block; }
-  .feedback .big { font-size: 22px; margin-bottom: 4px; }
+  .feedback .big { font-size: clamp(18px, 5.5vw, 22px); margin-bottom: 4px; }
 
   .next-btn {
     display: none;
@@ -196,32 +200,39 @@
     color: white;
     border: none;
     border-radius: 99px;
-    padding: 14px 40px;
-    font-size: 18px;
+    padding: clamp(12px, 3.5vw, 14px) 0;
+    font-size: clamp(17px, 4.5vw, 20px);
     cursor: pointer;
     font-family: inherit;
     box-shadow: 0 4px 12px rgba(76,175,80,0.35);
     transition: transform 0.1s;
+    width: 100%;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
   }
-  .next-btn:hover { transform: scale(1.04); }
-  .next-btn.show { display: inline-block; }
+  .next-btn:active { transform: scale(0.97); }
+  .next-btn.show { display: block; }
 
   #result { display: none; }
-  #result .big-emoji { font-size: 80px; margin-bottom: 8px; }
-  #result h2 { font-size: 26px; color: #2e7d32; margin-bottom: 12px; }
-  #result p  { font-size: 16px; color: #555; margin-bottom: 24px; line-height: 1.7; }
-  #result .score { font-size: 40px; font-weight: bold; color: #ff8f00; margin: 8px 0 20px; }
+  #result .big-emoji { font-size: clamp(60px, 18vw, 80px); margin-bottom: 8px; }
+  #result h2 { font-size: clamp(20px, 6vw, 26px); color: #2e7d32; margin-bottom: 12px; }
+  #result p  { font-size: clamp(14px, 3.8vw, 16px); color: #555; margin-bottom: 24px; line-height: 1.7; }
+  #result .score { font-size: clamp(32px, 9vw, 40px); font-weight: bold; color: #ff8f00; margin: 8px 0 20px; }
   .restart-btn {
     background: linear-gradient(135deg, #ffca28, #ffa000);
     color: white;
     border: none;
     border-radius: 99px;
-    padding: 14px 40px;
-    font-size: 18px;
+    padding: clamp(12px, 3.5vw, 14px) 0;
+    font-size: clamp(17px, 4.5vw, 20px);
     cursor: pointer;
     font-family: inherit;
     box-shadow: 0 4px 12px rgba(255,160,0,0.35);
+    width: 100%;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
   }
+  .restart-btn:active { transform: scale(0.97); }
 </style>
 </head>
 <body>
